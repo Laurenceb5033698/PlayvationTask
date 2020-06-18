@@ -1074,7 +1074,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd240b24b91347a469a86dc677f8fca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TitleScene: Menu
   GameScene: Main
 --- !u!4 &1642428857
 Transform:
@@ -1140,7 +1139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.9528302, g: 0.13932894, b: 0.21723902, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

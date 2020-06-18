@@ -12,8 +12,11 @@ public class ScrollingObject : MonoBehaviour
 		//Get and store a reference to the Rigidbody2D attached to this GameObject.
 		rb2d = GetComponent<Rigidbody2D>();
 
-		//Start the object moving.
-		rb2d.velocity = new Vector2 (GameControl.instance.scrollSpeed, 0);
+        //Start the object moving.
+        Vector2 old = rb2d.velocity;
+        old.x = GameControl.instance.scrollSpeed;
+        rb2d.velocity = old;
+        
 	}
 
 	void Update()
@@ -28,7 +31,12 @@ public class ScrollingObject : MonoBehaviour
             //check if the speed has increased
             if (GameControl.instance.scrollSpeed != rb2d.velocity.x)
             {   //apply the new speed
-                rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+                //get old velocity
+                Vector2 old = rb2d.velocity;
+                //change x value, but preserve y speed
+                old.x = GameControl.instance.scrollSpeed;
+                //re-apply
+                rb2d.velocity = old;
 
             }
         }
