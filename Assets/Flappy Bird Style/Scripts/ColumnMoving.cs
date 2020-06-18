@@ -29,21 +29,19 @@ public class ColumnMoving : Column
 
 
     void VerticalMotion()
-    {
-        Debug.Log("applying vertical motion");
+    {   //get old velocity
         Vector2 old = gameObject.GetComponent<Rigidbody2D>().velocity;
+        //check direction, and check velocity
         if (ascending && old.y >= 0)
         {
-            Debug.Log("ascending");
-            old.y = -verticalSpeed;                                          //change y value, but preserve x speed
-            gameObject.GetComponent<Rigidbody2D>().velocity = old;          //re-apply
-            ascending = !ascending;
+            old.y = -verticalSpeed;                                     //change y value, but preserve x speed
+            gameObject.GetComponent<Rigidbody2D>().velocity = old;      //re-apply
+            ascending = !ascending;                                     //flip direction
         }
         else
         {
             if (old.y <= 0)
             { //decend
-                Debug.Log("decending");
                 old.y = verticalSpeed;
                 gameObject.GetComponent<Rigidbody2D>().velocity = old;
                 ascending = !ascending;
