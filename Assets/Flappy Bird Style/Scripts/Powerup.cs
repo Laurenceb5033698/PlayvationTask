@@ -11,9 +11,17 @@ public class Powerup : MonoBehaviour
     public PowerupType Type;
 
 
+    private void Update()
+    {
+        //check if object has passed out of level
+        if (transform.position.x < -10)
+            //delete object that is out of play
+            Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        //check if player triggered
+        //check if player triggered it
         if (other.GetComponent<Bird>() != null)
         {
             //apply powerup and remove powerup
