@@ -18,10 +18,19 @@ public class ScrollingObject : MonoBehaviour
 
 	void Update()
 	{
-		// If the game is over, stop scrolling.
-		if(GameControl.instance.gameOver == true)
-		{
-			rb2d.velocity = Vector2.zero;
-		}
-	}
+        // If the game is over, stop scrolling.
+        if (GameControl.instance.gameOver == true)
+        {
+            rb2d.velocity = Vector2.zero;
+        }
+        else
+        {
+            //check if the speed has increased
+            if (GameControl.instance.scrollSpeed != rb2d.velocity.x)
+            {   //apply the new speed
+                rb2d.velocity = new Vector2(GameControl.instance.scrollSpeed, 0);
+
+            }
+        }
+    }
 }

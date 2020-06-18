@@ -57,4 +57,14 @@ public class ColumnPool : MonoBehaviour
 			}
 		}
 	}
+
+    //when scroll speed increases, must decrease column spawn rate to keep up
+    public void AlterSpawnrate()
+    {
+        //minimum spawn rate of 1s
+        if (spawnRate > 0.8f)
+        {
+            spawnRate -= 0.25f;
+        }
+    }
 }

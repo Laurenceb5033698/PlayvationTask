@@ -19,11 +19,11 @@ public class Bird : MonoBehaviour
 
 	void Update()
 	{
-		//Don't allow control if the bird has died.
-		if (isDead == false) 
+        //Don't allow control if the bird has died.
+        if (isDead == false ) 
 		{
-			//Look for input to trigger a "flap".
-			if (Input.GetMouseButtonDown(0)) 
+			//Look for input to trigger a "flap".   //do not allow "flap" if bird is above boundry
+			if (Input.GetMouseButtonDown(0) && transform.position.y < 5.0f) 
 			{
 				//...tell the animator about it and then...
 				anim.SetTrigger("Flap");
@@ -34,7 +34,10 @@ public class Bird : MonoBehaviour
 				rb2d.AddForce(new Vector2(0, upForce));
 			}
 		}
-	}
+        //halt upwards motion beyond boundry
+        if (transform.position.y >= 5.0f && rb2d.velocity.y > 0)
+            rb2d.velocity = Vector2.zero;
+    }
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
